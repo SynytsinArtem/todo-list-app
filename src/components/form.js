@@ -11,8 +11,11 @@ const Form = ({ addTodo }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTodo(value);
-    setValue("");
+
+    if (value.length > 0) {
+      addTodo(value);
+      setValue("");
+    }
   };
 
   return (
