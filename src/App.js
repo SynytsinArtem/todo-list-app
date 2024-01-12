@@ -1,5 +1,5 @@
 import React from "react";
-import {AppContextProvider} from "./context";
+import { AppContextProvider } from "./context";
 import Header from './components/header';
 import List from './components/list.js';
 import styles from './App.module.css';
@@ -12,4 +12,5 @@ const AppView = () => (
         </div>
     </AppContextProvider>
 );
+
 export default AppView;

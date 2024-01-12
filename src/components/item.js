@@ -1,25 +1,29 @@
-import styles from './item.module.css';
+import styles from "./item.module.css";
 
-const Item = ({item}) => {
-    const {text, isCompleted} = item;
-    return (
-        <div
-            className={styles.item}
-            style={{textDecoration: isCompleted ? "line-through" : ""}}
-        >
-            <span>{text}</span>
-            <div className={styles.actions}>
-                <button className={styles.button} onClick={() => {
-                }}>
-                    Complete
-                </button>
-                <button className={styles.button} onClick={() => {
-                }}>
-                    x
-                </button>
-            </div>
-        </div>
-    );
-}
+const Item = ({ item, completeTodo, removeTodo }) => {
+  const { text, isCompleted, id } = item;
+
+  const handleComplete = () => {
+    completeTodo(id);
+  };
+
+  const handleRemove = () => {
+    removeTodo(id);
+  };
+
+  return (
+    <div className={styles.item} style={{ textDecoration: isCompleted ? "line-through" : "" }}>
+      <span>{text}</span>
+      <div className={styles.actions}>
+        <button className={styles.button} onClick={handleComplete}>
+          Complete
+        </button>
+        <button className={styles.button} onClick={handleRemove}>
+          x
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Item;
