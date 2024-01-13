@@ -1,55 +1,17 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import { AppBar as AppBarMaterial } from "@mui/material";
 
-import AlertDialog from "./alertDialog";
+import AppBar from "./appBar";
 import AppContext from "../context";
 
-import styles from "./header.module.css";
-
-const Header = React.memo(({ removeAllTodos, todosCount }) => {
-  const [isDialogOpen, setIsDialogOpen] = React.useState(false);
-
-  const handleClearAllButtonClick = () => {
-    setIsDialogOpen(true);
-  };
-
-  const handleDialogClose = React.useCallback(() => {
-    setIsDialogOpen(false);
-  }, []);
-
-  const handleDialogAgree = React.useCallback(() => {
-    removeAllTodos();
-    setIsDialogOpen(false);
-  }, [removeAllTodos]);
-
-  return (
-    <header className={styles.header}>
-      <h1 className={styles.title}>Todo App</h1>
-      <span>Total Items: {todosCount}</span>
-      <Button
-        variant="outlined"
-        color="error"
-        onClick={handleClearAllButtonClick}
-        disabled={todosCount === 0}
-      >
-        Clear All
-      </Button>
-      <AlertDialog
-        isOpen={isDialogOpen}
-        title="Are you sure you want to clear all items?"
-        contentText="This will delete all of your tasks."
-        onClose={handleDialogClose}
-        onAgree={handleDialogAgree}
-        onDisagree={handleDialogClose}
-      />
-    </header>
-  );
-});
-
-const HeaderContainer = () => {
+const Header = () => {
   const { actions, todosCount } = React.useContext(AppContext);
 
-  return <Header removeAllTodos={actions.removeAllTodos} todosCount={todosCount} />;
+  return (
+    <AppBarMaterial position="static">
+      <AppBar removeAllTodos={actions.removeAllTodos} todosCount={todosCount} />
+    </AppBarMaterial>
+  );
 };
 
-export default HeaderContainer;
+export default Header;
