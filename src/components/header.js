@@ -6,7 +6,7 @@ import styles from "./header.module.css";
 
 const Header = React.memo(({ removeAllTodos, todosCount }) => (
   <header className={styles.header}>
-    <h1 className={styles.title}>To do App</h1>
+    <h1 className={styles.title}>Todo App</h1>
     <span>Total Items: {todosCount}</span>
     <button onClick={removeAllTodos}>Clear All</button>
   </header>

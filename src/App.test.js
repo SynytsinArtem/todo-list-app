@@ -1,12 +1,14 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders app title link', () => {
+test("renders app title link", () => {
   render(<App />);
   const titleElement = screen.getByText(/Todo App/i);
   expect(titleElement).toBeInTheDocument();
 });
 
-test('render Clear All button', () => {
-
-})
+test("render Clear All button", () => {
+  render(<App />);
+  const clearAllButton = screen.getByText(/Clear All/i);
+  expect(clearAllButton).toBeInTheDocument();
+});
