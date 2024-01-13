@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@mui/material/Button";
 
 import AlertDialog from "./alertDialog";
 import AppContext from "../context";
@@ -25,7 +26,14 @@ const Header = React.memo(({ removeAllTodos, todosCount }) => {
     <header className={styles.header}>
       <h1 className={styles.title}>Todo App</h1>
       <span>Total Items: {todosCount}</span>
-      <button onClick={handleClearAllButtonClick} disabled={todosCount === 0}>Clear All</button>
+      <Button
+        variant="outlined"
+        color="error"
+        onClick={handleClearAllButtonClick}
+        disabled={todosCount === 0}
+      >
+        Clear All
+      </Button>
       <AlertDialog
         isOpen={isDialogOpen}
         title="Are you sure you want to clear all items?"
