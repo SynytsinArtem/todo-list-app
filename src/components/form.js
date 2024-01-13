@@ -1,4 +1,7 @@
 import React from "react";
+import TextField from "@mui/material/TextField";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 
 import styles from "./form.module.css";
 
@@ -20,16 +23,20 @@ const Form = ({ addTodo }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label htmlFor="newItem" className={styles.label}>
-        New Item
-      </label>
-      <input
-        id="newItem"
-        type="text"
+      <TextField
         className={styles.input}
+        id="newItem"
+        label="New Item"
+        variant="outlined"
         value={value}
         onChange={handleChange}
+        required
       />
+      <span className={styles.buttonWrapper}>
+        <Fab color="primary" aria-label="add" type="submit" size="large" disabled={value.length === 0}>
+          <AddIcon />
+        </Fab>
+      </span>
     </form>
   );
 };
