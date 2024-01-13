@@ -1,11 +1,15 @@
 import React from "react";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Checkbox from "@mui/material/Checkbox";
 
 import styles from "./item.module.css";
 
 const Item = ({ item, completeTodo, removeTodo }) => {
   const { text, isCompleted, id } = item;
+  const itemClassList = `${styles.item} ${isCompleted ? styles.item__completed : ""}`;
 
-  const handleComplete = () => {
+  const handleCompleteChange = () => {
     completeTodo(id);
   };
 
@@ -14,15 +18,13 @@ const Item = ({ item, completeTodo, removeTodo }) => {
   };
 
   return (
-    <div className={styles.item} style={{ textDecoration: isCompleted ? "line-through" : "" }}>
+    <div className={itemClassList}>
       <span>{text}</span>
       <div className={styles.actions}>
-        <button className={styles.button} onClick={handleComplete}>
-          Complete
-        </button>
-        <button className={styles.button} onClick={handleRemove}>
-          x
-        </button>
+        <Checkbox checked={isCompleted} onChange={handleCompleteChange} color="default" />
+        <IconButton aria-label="delete" onClick={handleRemove}>
+          <DeleteIcon />
+        </IconButton>
       </div>
     </div>
   );
