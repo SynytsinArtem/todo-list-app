@@ -6,29 +6,31 @@ const Context = React.createContext();
 export const AppContextProvider = (props) => {
   const [todos, setTodos] = React.useState(initialData);
 
-  const addTodo = (text) => {
-    const newTodo = {
-        id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
+  const addTodo = React.useCallback((text) => {
+    setTodos((prevTodos) => {
+      const newTodo = {
+        id: prevTodos.length > 0 ? prevTodos[prevTodos.length - 1].id + 1 : 1,
         isCompleted: false,
         text,
-    };
+      };
+  
+      return [...prevTodos, newTodo]
+    });
+  }, []);
 
-    setTodos((prevTodos) => [...prevTodos, newTodo]);
-  };
-
-  const completeTodo = (id) => {
+  const completeTodo = React.useCallback((id) => {
     setTodos((prevTodos) => (
       prevTodos.map((todo) => todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo)
     ));
-  };
+  }, []);
 
-  const removeTodo = (id) => {
+  const removeTodo = React.useCallback((id) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-  };
+  }, []);
 
-  const removeAllTodos = () => {
+  const removeAllTodos = React.useCallback(() => {
     setTodos([]);
-  };
+  }, []);
 
   const providerValue = {
     todosCount: todos.length,

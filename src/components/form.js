@@ -34,4 +34,4 @@ const Form = ({ addTodo }) => {
   );
 };
 
-export default Form;
+export default React.memo(Form);

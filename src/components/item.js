@@ -1,3 +1,5 @@
+import React from "react";
+
 import styles from "./item.module.css";
 
 const Item = ({ item, completeTodo, removeTodo }) => {
@@ -26,4 +28,4 @@ const Item = ({ item, completeTodo, removeTodo }) => {
   );
 };
 
-export default Item;
+export default React.memo(Item);
