@@ -20,6 +20,7 @@ function List() {
           removeTodo={actions.removeTodo}
         />
       ))}
+      {todos.length === 0 && <p className={styles.message}>You don't have any tasks.</p>}
       <Form addTodo={actions.addTodo} />
     </div>
   );
