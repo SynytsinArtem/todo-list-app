@@ -7,7 +7,7 @@ test("renders app title link", () => {
   expect(titleElement).toBeInTheDocument();
 });
 
-test("render Clear All button", () => {
+test("renders Clear All button", () => {
   render(<App />);
   const clearAllButton = screen.getByText(/Clear All/i);
   expect(clearAllButton).toBeInTheDocument();
