@@ -1,6 +1,5 @@
 import React from "react";
-import TextField from "@mui/material/TextField";
-import Fab from "@mui/material/Fab";
+import { TextField, Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 import styles from "./form.module.css";
@@ -33,7 +32,13 @@ const Form = ({ addTodo }) => {
         required
       />
       <span className={styles.buttonWrapper}>
-        <Fab color="primary" aria-label="add" type="submit" size="large" disabled={value.length === 0}>
+        <Fab
+          color="primary"
+          aria-label="add"
+          type="submit"
+          size="large"
+          disabled={value.length === 0}
+        >
           <AddIcon />
         </Fab>
       </span>

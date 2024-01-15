@@ -6,15 +6,14 @@ import Item from "./item";
 
 import styles from "./list.module.css";
 
-function List() {
+const List = () => {
   const { actions, todos } = React.useContext(AppContext);
 
   return (
     <div className={styles.list}>
-      {todos.map((todo, index) => (
+      {todos.map((todo) => (
         <Item
-          key={index}
-          index={index}
+          key={todo.id}
           item={todo}
           completeTodo={actions.completeTodo}
           removeTodo={actions.removeTodo}
@@ -24,6 +23,6 @@ function List() {
       <Form addTodo={actions.addTodo} />
     </div>
   );
-}
+};
 
 export default List;

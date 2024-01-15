@@ -1,7 +1,6 @@
 import React from "react";
-import IconButton from "@mui/material/IconButton";
+import { IconButton, Checkbox } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Checkbox from "@mui/material/Checkbox";
 
 import styles from "./item.module.css";
 

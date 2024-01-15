@@ -1,10 +1,12 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogActions from "@mui/material/DialogActions";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from "@mui/material";
 
 const AlertDialog = ({ isOpen, title, contentText, onClose, onAgree, onDisagree }) => (
   <Dialog
@@ -15,9 +17,7 @@ const AlertDialog = ({ isOpen, title, contentText, onClose, onAgree, onDisagree 
   >
     <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
     <DialogContent>
-      <DialogContentText id="alert-dialog-description">
-        {contentText}
-      </DialogContentText>
+      <DialogContentText id="alert-dialog-description">{contentText}</DialogContentText>
     </DialogContent>
     <DialogActions>
       <Button onClick={onDisagree}>Disagree</Button>

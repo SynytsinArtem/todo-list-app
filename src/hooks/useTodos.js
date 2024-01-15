@@ -10,8 +10,8 @@ const useTodos = (initialData = []) => {
         isCompleted: false,
         text,
       };
-  
-      return [...prevTodos, newTodo]
+
+      return [...prevTodos, newTodo];
     });
   }, []);
 
@@ -29,7 +29,7 @@ const useTodos = (initialData = []) => {
     setTodos([]);
   }, []);
 
-  return { todos, addTodo, completeTodo, removeTodo, removeAllTodos }; 
+  return { todos, addTodo, completeTodo, removeTodo, removeAllTodos };
 };
 
 export default useTodos;

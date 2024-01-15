@@ -1,12 +1,12 @@
 .list {
-    background: #e8e8e8;
-    border-radius: 4px;
-    padding: 1rem;
-    margin: 0 auto;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 4px;
+  background: #e8e8e8;
 }
 
 .message {
-    padding-bottom: 1rem;
-    font-size: 1.2rem;
-    text-align: center;
+  padding-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
 }
